@@ -1,0 +1,75 @@
+body { 
+  font-family: Gill Sans, 'Lato', sans-serif;
+  margin: 0;
+  color: #5A5A5A;
+  background-color: #e8e8e8;
+}
+
+nav { 
+	filter: none; 
+  text-align: right;
+}  
+nav a { 
+  display: inline-block;
+  padding: 0.5rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #5A5A5A;
+}
+
+input{
+  color: #b3aca7;  
+}
+
+input:hover, input:focus {
+  outline: none;
+} 
+
+.notes {
+  margin: 0 auto;
+}
+
+.note {
+  padding: 8px;
+  box-sizing: border-box;
+  width: 300px;
+  float:left;
+}
+
+.note .inputText, .note .note-header{
+  width:87%;
+  border: 0px;  
+}
+
+.note .note-add .inputText{
+  width:85%;
+}
+
+.note-inner {
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
+  transition: box-shadow 0.2s;
+  padding: 5px;
+}
+.note:hover .note-inner {
+  box-shadow: 0 2px 15px rgba(0,0,0,0.30);
+}
+
+.note-header{
+  font-weight: bold;
+  font-size: 110%;
+}
+
+.note-add {
+  margin-top: 20px;
+}
+
+.note-item-delete{
+  color: #b3aca7;    
+  cursor: pointer;
+}
+
+.checkedItem{
+  text-decoration: line-through;
+}

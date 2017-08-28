@@ -1,0 +1,23 @@
+/* .links{
+  padding-right: 10px;
+}
+
+.todo_header, .todo_text, .todo_item{
+  border: 0px;
+}
+
+.todo_header, .todo_item{
+  text-align: center;
+}
+
+.todo_header{
+  font-size: 120%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.todo_containers{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+} */

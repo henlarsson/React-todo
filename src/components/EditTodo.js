@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addText, addTodo } from '../actions'
 import { withRouter } from 'react-router-dom'
-import '../static/App.css'
 import { AddItem, RemoveTodo, Todo } from './'
 
 class EditTodo extends Component {
