@@ -1,8 +1,8 @@
-const hasSessionStorageSupport = () => {
+const hasLocalStorageSupport = () => {
   try {
     const identifier = + new Date()
-    sessionStorage.setItem(identifier, identifier)
-    sessionStorage.removeItem(identifier)
+    localStorage.setItem(identifier, identifier)
+    localStorage.removeItem(identifier)
     return true
   } catch (e) {
     return false
@@ -10,20 +10,22 @@ const hasSessionStorageSupport = () => {
 }
 
 export const setItem = (name, value) => {
-  if (hasSessionStorageSupport()) {
-    sessionStorage.setItem(name, JSON.stringify(value))
+  if (hasLocalStorageSupport()) {
+    localStorage.setItem(name, JSON.stringify(value))
   }
 }
 
 export const getItem = name => {
-  if (hasSessionStorageSupport()) {
-    return JSON.parse(sessionStorage.getItem(name))
+  if (hasLocalStorageSupport()) {
+    const todos = localStorage.getItem(name)
+    if (todos)
+      return JSON.parse(todos)
   }
   return []
 }
 
 export const removeItem = name => {
-  if (hasSessionStorageSupport()) {
-    sessionStorage.removeItem(name)
+  if (hasLocalStorageSupport()) {
+    localStorage.removeItem(name)
   }
 }
