@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteTodo } from '../actions'
+import { deleteTodo } from '../../actions'
 import { withRouter } from 'react-router-dom'
 
 class RemoveTodo extends Component {

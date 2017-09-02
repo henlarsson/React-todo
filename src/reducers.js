@@ -1,32 +1,33 @@
-// import { combineReducers } from 'redux'
 import {
-  ADD_TEXT,
+  ADD_ITEM,
   ADD_TODO,
   DELETE_ITEM,
   DELETE_TODO,
   UPDATE_HEADER,
   UPDATE_ITEM
 } from './constants'
-import * as storage from './Utility/Storage'
+import * as storage from './utility/storage'
 
-const getInitialValue = () => {
-  const todos = storage.getItem("todelido")
+const dbTodo = "dbTodo"
+
+const getStoredTodos = () => {
+  const todos = storage.getItem(dbTodo)
   return todos || []
 }
 
-const saveTodos = (todos) => {
-  storage.setItem("todelido", todos)
+const initialState = {
+  todos: getStoredTodos(),
+  checkedIfSavedTodos: false
 }
 
-export const initialState = {
-  todos: getInitialValue(),
-  checkedIfSavedTodos: false
+const saveTodos = (todos) => {
+  storage.setItem(dbTodo, todos)
 }
 
 const todoReducer = (state = initialState, action) => {
   let todos
   switch (action.type) {
-    case ADD_TEXT:
+    case ADD_ITEM:
       action.payload.newItem.id = getId()
       todos = updateTodo(state.todos, action.payload, ((todo, payload) => {
         todo.items = todo.items.concat(payload.newItem)
@@ -74,9 +75,8 @@ const todoReducer = (state = initialState, action) => {
 
 const updateTodo = (todos, payload, updateFunc) => {
   return todos.map(todo => {
-    if (todo.id === payload.id) {
-      todo = updateFunc(todo, payload)// todo.header = action.payload.header
-    }
+    if (todo.id === payload.id)
+      todo = updateFunc(todo, payload)
     return todo
   })
 }

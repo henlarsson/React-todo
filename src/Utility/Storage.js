@@ -10,9 +10,8 @@ const hasLocalStorageSupport = () => {
 }
 
 export const setItem = (name, value) => {
-  if (hasLocalStorageSupport()) {
+  if (hasLocalStorageSupport())
     localStorage.setItem(name, JSON.stringify(value))
-  }
 }
 
 export const getItem = name => {
@@ -25,7 +24,6 @@ export const getItem = name => {
 }
 
 export const removeItem = name => {
-  if (hasLocalStorageSupport()) {
+  if (hasLocalStorageSupport())
     localStorage.removeItem(name)
-  }
 }

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateItem, updateHeader, deleteItem } from '../actions'
+import { updateItem, updateHeader, deleteItem } from '../../actions'
 import { withRouter, Redirect } from 'react-router-dom'
-import '../../node_modules/font-awesome/css/font-awesome.min.css'
+import { AddItem, RemoveTodo } from '../'
+import '../../../node_modules/font-awesome/css/font-awesome.min.css'
 
 class AddTodo extends Component {
   constructor(props) {
@@ -66,7 +67,7 @@ class AddTodo extends Component {
                   className={`inputText ${item.checked && "checkedItem"}`}
                   onChange={(e) => this.updateItem(e, item.id, todo.items)}
                   value={item.text} />
-                {this.props.showDelete &&
+                {this.props.allowEdit &&
                   <i
                     className="fa fa-trash-o note-item-delete"
                     aria-hidden="true"
@@ -75,8 +76,8 @@ class AddTodo extends Component {
                 }
               </div>
             })}
-          {this.props.addItem}
-          {this.props.removeTodo}
+          {this.props.allowEdit && <AddItem id={this.props.id} />}
+          {this.props.allowEdit && <RemoveTodo id={this.props.id} />}
         </div>
       </div>
     );

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
-import { deleteTodo } from '../actions'
-import { Todo } from './'
+import { deleteTodo } from '../../actions'
+import { Todo } from '../'
 
-class Todos extends Component {
+class TodoList extends Component {
   toEditMode = (id) => {
     const url = `/Todo/${id}`
     this.props.history.push(url)
@@ -42,4 +42,4 @@ export default withRouter(connect(
   {
     deleteTodo
   }
-)(Todos))
+)(TodoList))

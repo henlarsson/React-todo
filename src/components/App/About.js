@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 
-
 class About extends Component {
   state = { sunset: null }
 
   async componentDidMount() {
-    const sunset = await import('../static/images/sunset.jpg')
+    const sunset = await import('../../static/images/sunset.jpg')
     this.setState({ sunset: <img src={sunset} alt="sunset" /> })
   }
 

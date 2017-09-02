@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addText, addTodo } from '../actions'
+import { addItem, addTodo } from '../../actions'
 import { withRouter } from 'react-router-dom'
 
 class AddItem extends Component {
@@ -19,15 +19,16 @@ class AddItem extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    var newItem = {
-      text: this.state.text,
-      checked: false
-    }
-    this.props.addText(
+
+    this.props.addItem(
       {
-        newItem: newItem,
+        newItem: {
+          text: this.state.text,
+          checked: false
+        },
         id: this.props.id
       })
+
     this.setState((prevState) => ({
       text: ''
     }))
@@ -53,7 +54,7 @@ export default withRouter(connect(
     todos: state.todos
   }),
   {
-    addText,
+    addItem,
     addTodo
   }
 )(AddItem))

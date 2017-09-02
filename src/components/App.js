@@ -5,7 +5,7 @@ import {
   Link,
   Switch
 } from 'react-router-dom'
-import { EditTodo, Todos, NoPage, About } from './'
+import { EditTodo, TodoList, NoPage, About } from './'
 
 class App extends Component {
   render() {
@@ -21,10 +21,10 @@ class App extends Component {
           <div className="container">
             <div>
               <Switch>
-                <Route path="/" exact component={Todos} />
+                <Route path="/" exact component={TodoList} />
                 <Route path="/todo/:id" component={EditTodo} />
                 <Route path="/todo" component={EditTodo} />
-                <Route path="/todos" component={Todos} />
+                <Route path="/todos" component={TodoList} />
                 <Route path="/about" component={About} />
                 <Route component={NoPage} />
               </Switch>

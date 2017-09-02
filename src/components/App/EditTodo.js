@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { addText, addTodo } from '../actions'
-import { AddItem, RemoveTodo, Todo } from './'
+import { addItem, addTodo } from '../../actions'
+import { Todo } from '../'
 
 class EditTodo extends Component {
   constructor(props) {
@@ -25,9 +25,7 @@ class EditTodo extends Component {
     return (
       <div className="todos">
         <Todo id={this.state.id}
-          addItem={<AddItem id={this.state.id} />}
-          removeTodo={<RemoveTodo id={this.state.id} />}
-          showDelete={true}
+          allowEdit={true}
         />
       </div>
     );
@@ -39,7 +37,7 @@ export default withRouter(connect(
     todos: state.todos
   }),
   {
-    addText,
+    addItem,
     addTodo
   }
 )(EditTodo))

@@ -1,5 +1,5 @@
 import {
-  ADD_TEXT,
+  ADD_ITEM,
   ADD_TODO,
   DELETE_ITEM,
   DELETE_TODO,
@@ -7,8 +7,8 @@ import {
   UPDATE_ITEM
 } from './constants'
 
-export const addText = (todo) => ({
-  type: ADD_TEXT,
+export const addItem = (todo) => ({
+  type: ADD_ITEM,
   payload: todo
 })
 export const addTodo = (todo) => ({
